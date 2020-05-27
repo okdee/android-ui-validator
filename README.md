@@ -41,42 +41,42 @@ A simple fields validator for Android that I created for checking mandatory fiel
 ## Full Code Usage Example
   1. Activity:
   ```
-    public class AddContractActivity extends AppCompatActivity {
-
-      TextView contractDescriptionTextView;
-      TextView totalAmountTextView;
-
-      List<View> fieldsToBeValidated;
-
-      @Override
-      protected void onCreate(Bundle savedInstanceState) {
-          super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_add_contract);
-
-          contractDescriptionTextView = findViewById(R.id.contractDescriptionEditText);
-          totalAmountTextView = findViewById(R.id.totalAmountText);
-
-          fieldsToBeValidated = new ArrayList<>(Arrays.asList(
-                  contractDescriptionTextView,
-                  totalAmountTextView));
-
-          saveButton.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if (!UIValidator.validateViewFields(fieldsToBeValidated, true)) {
-                      Toast.makeText(AddContractActivity.this, "Missing Fields", Toast.LENGTH_SHORT).show();
-                      mainScrollView.post(new Runnable() {
-                          @Override
-                          public void run() {
-                              mainScrollView.smoothScrollTo(0, 0);
-                          }
-                      });
-                      return;
-                  }
-              });
-          }
-      }
-  }
+      public class AddContractActivity extends AppCompatActivity {
+    
+        TextView contractDescriptionTextView;
+        TextView totalAmountTextView;
+    
+        List<View> fieldsToBeValidated;
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_add_contract);
+    
+            contractDescriptionTextView = findViewById(R.id.contractDescriptionEditText);
+            totalAmountTextView = findViewById(R.id.totalAmountText);
+    
+            fieldsToBeValidated = new ArrayList<>(Arrays.asList(
+                    contractDescriptionTextView,
+                    totalAmountTextView));
+    
+            saveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!UIValidator.validateViewFields(fieldsToBeValidated, true)) {
+                        Toast.makeText(AddContractActivity.this, "Missing Fields", Toast.LENGTH_SHORT).show();
+                        mainScrollView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                mainScrollView.smoothScrollTo(0, 0);
+                            }
+                        });
+                        return;
+                    }
+                }
+            });
+        }
+    }
   ```
   2. Fragment:
   ```
