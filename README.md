@@ -37,7 +37,8 @@ A simple fields validator for Android that I created for checking mandatory fiel
   1. The main method of this class is `validateViewFields`, but there are more methods that you can use on your own.
   2. `validateViewFields` takes two arguments, the first is the list of the views you want to validate, and the second is a boolean that applies visuals on the fields you want to validate. in other words, the boolean indicates setting red error on fields or not.
   3. The capabilities of `UIValidator` class are only for TextView (EditText as well) and Spinner views. it can be scaled to other view types, I just didn't need to for now.
-## Full Usage Code Example
+  4. Default values for the validator are " " (empty string) for TextView, and " " (empty string) or "Select..." for Spinner, you can change those as you wish.
+## Full Code Usage Example
   1. Activity:
   ```
     public class AddContractActivity extends AppCompatActivity {
